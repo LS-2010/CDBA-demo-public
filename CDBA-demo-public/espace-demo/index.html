@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Mon espace (maquette) | Section plongée du CDBA</title>
+  <link rel="icon" href="../img/logo-cdba.png" type="image/png">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/inscription.js" defer></script>
+</head>
+<body>
+  <p class="bandeau-demo-publique">Version de démonstration, non officielle. Contenu provisoire.</p>
+  <p class="bandeau-maquette">MAQUETTE DE DÉMONSTRATION : aucune donnée n’est enregistrée</p>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <div class="conteneur">
+      <a class="marque" href="../index.html">
+        <img src="../img/logo-cdba.png" width="511" height="391" alt="Club Défense Balard Arcueil, retour au site public">
+      </a>
+      <nav class="nav" aria-label="Compte">
+        <ul>
+          <li><p class="utilisateur">Marie Exemple <span class="exemple">EXEMPLE</span></p></li>
+          <li><a href="../index.html">Se déconnecter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="ouverture bande-claire motif" aria-labelledby="titre-page">
+      <div class="conteneur">
+        <div>
+          <h1 id="titre-page">Mon espace</h1>
+          <hr class="filet-rouge">
+          <p class="a-completer">Maquette : fonctions à définir avec le club.</p>
+          <h2 id="titre-prochaine">Prochaine fosse</h2>
+          <dl class="fiche">
+            <dt>Date</dt>
+            <dd>Dimanche 6 décembre 2026, 12&nbsp;h&nbsp;30 à 13&nbsp;h&nbsp;30</dd>
+            <dt>Lieu</dt>
+            <dd>UCPA Aqua92, Villeneuve-la-Garenne</dd>
+            <dt>Statut</dt>
+            <dd>Inscrit <span class="exemple">EXEMPLE</span></dd>
+            <dt>Fosses effectuées cette saison</dt>
+            <dd>2 <span class="exemple">EXEMPLE</span></dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="rubrique" aria-labelledby="titre-profil">
+      <div class="conteneur">
+        <h2 id="titre-profil">Mon profil</h2>
+        <form class="formulaire" id="formulaire-profil" method="post" novalidate>
+          <p>Données pré-remplies <span class="exemple">EXEMPLE</span>. Rien n’est enregistré ni envoyé.</p>
+          <div class="champ">
+            <label for="profil-nom">Nom</label>
+            <input type="text" id="profil-nom" name="nom" value="Exemple" autocomplete="off">
+            <p class="erreur-champ" id="erreur-nom" hidden></p>
+          </div>
+          <div class="champ">
+            <label for="profil-prenom">Prénom</label>
+            <input type="text" id="profil-prenom" name="prenom" value="Marie" autocomplete="off">
+            <p class="erreur-champ" id="erreur-prenom" hidden></p>
+          </div>
+          <fieldset>
+            <legend>Niveau (plongée, apnée ou les deux) [À CONFIRMER]</legend>
+            <div class="champ">
+              <label for="niveau-plongee">Niveau de plongée</label>
+              <select id="niveau-plongee" name="niveau">
+                <option value="">Aucun</option>
+                <option>Baptême</option>
+                <option>PN1</option>
+                <option>N1</option>
+                <option>PN2</option>
+                <option selected>N2</option>
+                <option>PN3</option>
+                <option>N3</option>
+                <option>PN4</option>
+                <option>GDP</option>
+                <option>E1</option>
+                <option>E2</option>
+                <option>E3</option>
+                <option>E4</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label for="niveau-apnee">Niveau d’apnée</label>
+              <select id="niveau-apnee" name="niveau">
+                <option value="">Aucun</option>
+                <option>AP (Apnéiste Piscine)</option>
+                <option>ACP (Apnéiste Confirmé Piscine)</option>
+                <option>AEL (Apnéiste Eau Libre)</option>
+                <option>ACEL (Apnéiste Confirmé Eau Libre)</option>
+                <option>AEEL (Apnéiste Expert Eau Libre)</option>
+                <option>IE1</option>
+                <option>IE2</option>
+                <option>MEF1</option>
+                <option>MEF2</option>
+                <option>IN (Instructeur National)</option>
+              </select>
+            </div>
+            <p class="erreur-champ" id="erreur-niveau" hidden></p>
+          </fieldset>
+          <p><button class="bouton" type="submit">Enregistrer mon profil</button></p>
+          <div class="message" id="message-profil" role="status" tabindex="-1"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="rubrique bande-claire" aria-labelledby="titre-mot-de-passe">
+      <div class="conteneur">
+        <h2 id="titre-mot-de-passe">Mot de passe</h2>
+        <p class="a-completer">Formulaire fictif : ne saisissez aucun vrai mot de passe. Rien n’est lu ni envoyé. En cas d’oubli, utilisez « Mot de passe oublié » sur la page de connexion.</p>
+        <form class="formulaire formulaire-fictif" id="formulaire-mot-de-passe" method="post" novalidate aria-labelledby="titre-definir">
+          <h3 id="titre-definir">Définir ou changer mon mot de passe</h3>
+          <div class="champ">
+            <label for="nouveau-mot-de-passe">Nouveau mot de passe</label>
+            <input type="password" id="nouveau-mot-de-passe" autocomplete="off">
+          </div>
+          <div class="champ">
+            <label for="confirmation-mot-de-passe">Confirmer le nouveau mot de passe</label>
+            <input type="password" id="confirmation-mot-de-passe" autocomplete="off">
+          </div>
+          <p><button class="bouton" type="submit">Enregistrer le mot de passe</button></p>
+          <div class="message" role="status" tabindex="-1" data-texte="Maquette : aucun mot de passe n’a été lu, enregistré ni envoyé. Les champs ont été vidés."></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="rubrique" aria-labelledby="titre-inscriptions">
+      <div class="conteneur">
+        <h2 id="titre-inscriptions">Mes inscriptions</h2>
+        <table class="tableau">
+          <thead>
+            <tr><th scope="col">Date</th><th scope="col">Statut</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Dimanche 6 décembre 2026, plongée</td><td>Inscrit <span class="exemple">EXEMPLE</span></td></tr>
+            <tr><td>Dimanche 17 janvier 2027, plongée</td><td>En attente de confirmation <span class="exemple">EXEMPLE</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="rubrique bande-claire" aria-labelledby="titre-inscription">
+      <div class="conteneur">
+        <h2 id="titre-inscription">S’inscrire à une fosse</h2>
+        <form class="formulaire" id="formulaire-inscription" method="post" novalidate>
+          <dl class="fiche">
+            <dt>Nom</dt>
+            <dd>Exemple <span class="exemple">EXEMPLE</span></dd>
+            <dt>Prénom</dt>
+            <dd>Marie <span class="exemple">EXEMPLE</span></dd>
+          </dl>
+          <p>Nom, prénom et niveaux viennent de votre profil. Les champs ci-dessous sont obligatoires.</p>
+
+        <fieldset>
+          <legend>Date de la fosse</legend>
+          <fieldset>
+            <legend>Plongée, 12&nbsp;h&nbsp;30 à 13&nbsp;h&nbsp;30</legend>
+            <label class="choix"><input type="radio" name="date" value="2026-12-06-plongee"> Dimanche 6 décembre 2026</label>
+            <label class="choix"><input type="radio" name="date" value="2027-01-17-plongee"> Dimanche 17 janvier 2027</label>
+            <label class="choix"><input type="radio" name="date" value="2027-02-28-plongee"> Dimanche 28 février 2027</label>
+            <label class="choix"><input type="radio" name="date" value="2027-03-14-plongee"> Dimanche 14 mars 2027</label>
+            <label class="choix"><input type="radio" name="date" value="2027-04-25-plongee"> Dimanche 25 avril 2027</label>
+          </fieldset>
+          <fieldset>
+            <legend>Apnée</legend>
+            <label class="choix"><input type="radio" name="date" value="2027-01-24-apnee"> Dimanche 24 janvier 2027, 17&nbsp;h&nbsp;30 à 19&nbsp;h&nbsp;30</label>
+            <label class="choix"><input type="radio" name="date" value="2027-03-14-apnee"> Dimanche 14 mars 2027, 17&nbsp;h&nbsp;30 à 19&nbsp;h&nbsp;30</label>
+            <label class="choix"><input type="radio" name="date" value="2027-05-23-apnee"> Dimanche 23 mai 2027, 18&nbsp;h&nbsp;30 à 20&nbsp;h&nbsp;30</label>
+            <label class="choix"><input type="radio" name="date" value="2027-06-06-apnee"> Dimanche 6 juin 2027 (année [À VÉRIFIER SUR cdba.club]), 17&nbsp;h&nbsp;30 à 19&nbsp;h&nbsp;30</label>
+          </fieldset>
+          <p class="erreur-champ" id="erreur-date" hidden></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Taille de stab [À CONFIRMER si conservée]</legend>
+          <div class="choix-groupe">
+            <label class="choix"><input type="radio" name="stab" value="XS"> XS</label>
+            <label class="choix"><input type="radio" name="stab" value="S"> S</label>
+            <label class="choix"><input type="radio" name="stab" value="M"> M</label>
+            <label class="choix"><input type="radio" name="stab" value="L"> L</label>
+            <label class="choix"><input type="radio" name="stab" value="XL"> XL</label>
+          </div>
+          <label class="choix"><input type="radio" name="stab" value="J’emmène ma propre stab"> J’emmène ma propre stab</label>
+          <label class="choix"><input type="radio" name="stab" value="Apnée"> Apnée</label>
+          <p class="erreur-champ" id="erreur-stab" hidden></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Covoiturage : souhaitez-vous en faire partie ?</legend>
+          <div class="choix-groupe">
+            <label class="choix"><input type="radio" name="covoiturage" value="oui"> Oui</label>
+            <label class="choix"><input type="radio" name="covoiturage" value="non"> Non</label>
+          </div>
+          <p class="erreur-champ" id="erreur-covoiturage" hidden></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Venez-vous avec un véhicule ?</legend>
+          <div class="choix-groupe">
+            <label class="choix"><input type="radio" name="vehicule" value="oui" aria-controls="champ-places"> Oui</label>
+            <label class="choix"><input type="radio" name="vehicule" value="non" aria-controls="champ-places"> Non</label>
+          </div>
+          <p class="erreur-champ" id="erreur-vehicule" hidden></p>
+        </fieldset>
+
+        <div class="champ" id="champ-places" hidden>
+          <label for="places">Nombre de places disponibles, hors chauffeur</label>
+          <input type="number" id="places" name="places" min="0" max="8" step="1" inputmode="numeric" autocomplete="off">
+          <p class="erreur-champ" id="erreur-places" hidden></p>
+        </div>
+
+        <fieldset>
+          <legend>Avez-vous moins de 18 ans ?</legend>
+          <div class="choix-groupe">
+            <label class="choix"><input type="radio" name="mineur" value="oui" aria-controls="autorisation-parentale"> Oui</label>
+            <label class="choix"><input type="radio" name="mineur" value="non" aria-controls="autorisation-parentale"> Non</label>
+          </div>
+          <p class="erreur-champ" id="erreur-mineur" hidden></p>
+          <p class="a-completer" id="autorisation-parentale" hidden>Moins de 18 ans : l’autorisation parentale est obligatoire pour s’inscrire. Modèle ou forme exacte : [À CONFIRMER] (à définir par le club). Votre dossier indique « Autorisation parentale : à fournir », et l’inscription reste incomplète tant que cette pièce n’est pas fournie.</p>
+        </fieldset>
+
+          <p>Ces informations servent uniquement à organiser la fosse. <a class="lien-cible" href="../confidentialite.html">Politique de confidentialité</a></p>
+          <p><button class="bouton" type="submit">Envoyer mon inscription</button></p>
+          <div class="message" id="message" role="status" tabindex="-1"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="rubrique" aria-labelledby="titre-dossier">
+      <div class="conteneur">
+        <h2 id="titre-dossier">Mon dossier</h2>
+        <p class="a-completer">Maquette : fonctions à définir avec le club.</p>
+        <table class="tableau">
+          <thead>
+            <tr><th scope="col">Pièce</th><th scope="col">Statut</th><th scope="col">Validité</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Licence FFESSM</th><td>Fourni <span class="exemple">EXEMPLE</span></td><td>31 décembre 2027</td></tr>
+            <tr><th scope="row">Certificat médical</th><td>À vérifier <span class="exemple">EXEMPLE</span></td><td>15 septembre 2027</td></tr>
+            <tr><th scope="row">Passeport de plongée ou carte CMAS</th><td>Fourni <span class="exemple">EXEMPLE</span></td><td>sans objet</td></tr>
+            <tr id="ligne-autorisation" hidden><th scope="row">Autorisation parentale</th><td>À fournir <span class="exemple">EXEMPLE</span></td><td>sans objet</td></tr>
+          </tbody>
+        </table>
+        <p class="actions"><button class="bouton" type="button" disabled>Ajouter un document</button></p>
+        <p>Téléversement non disponible dans la maquette.</p>
+      </div>
+    </section>
+
+    <section class="rubrique bande-claire" aria-labelledby="titre-donnees">
+      <div class="conteneur">
+        <h2 id="titre-donnees">Mes données</h2>
+        <p class="actions"><button class="bouton" type="button" disabled>Demander la suppression</button></p>
+        <p>Ce bouton est inactif dans la maquette. Pour modifier vos données, utilisez « Mon profil ».</p>
+      </div>
+    </section>
+
+    <section class="rubrique" aria-labelledby="titre-tarifs">
+      <div class="conteneur">
+        <h2 id="titre-tarifs">Tarifs et paiement</h2>
+        <dl class="fiche">
+          <dt>Forfait : 70&nbsp;€</dt>
+          <dd>Obligatoire pour les formations PN1, PN2, PN3, PN4, PE1 et élève apnée. Il permet à l’élève en formation de participer à toutes les fosses de plongée de l’année. Il n’est plus prioritaire au-delà d’une participation à plus de 4 fosses.</dd>
+          <dt>À la carte : 20&nbsp;€</dt>
+          <dd>Par fosse.</dd>
+        </dl>
+        <h3>Non compris dans ces prix</h3>
+        <ul class="liste">
+          <li>Une pièce de 1&nbsp;€ pour la consigne.</li>
+          <li>La licence FFESSM, obligatoire d’après le site du club (cdba.club) : montant [À CONFIRMER].</li>
+          <li>L’assurance, obligatoire d’après le site du club (cdba.club) : montant [À CONFIRMER].</li>
+        </ul>
+        <p class="a-completer">[À CONFIRMER] Modalités de paiement.</p>
+        <p class="a-completer">Paiement en ligne : emplacement réservé, non disponible.</p>
+      </div>
+    </section>
+
+    <section class="a-venir" aria-label="Espaces à venir">
+      <div class="conteneur">
+        <ul>
+          <li>Espace moniteurs : non disponible</li>
+          <li>Espace administrateurs : non disponible</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <ul>
+        <li><a href="../mentions-legales.html">Mentions légales</a></li>
+        <li><a href="../confidentialite.html">Confidentialité</a></li>
+        <li><a href="../conditions.html">Conditions d’inscription</a></li>
+        <li><a href="../cookies.html">Cookies</a></li>
+        <li><a href="../credits.html">Crédits</a></li>
+      </ul>
+      <p>Section plongée du Club Défense Balard Arcueil.</p>
+    </div>
+  </footer>
+</body>
+</html>

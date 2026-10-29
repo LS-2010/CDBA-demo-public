@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Connexion (maquette) | Section plongée du CDBA</title>
+  <link rel="icon" href="../img/logo-cdba.png" type="image/png">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/demo-comptes.js" defer></script>
+  <script src="../js/inscription.js" defer></script>
+</head>
+<body>
+  <p class="bandeau-demo-publique">Version de démonstration, non officielle. Contenu provisoire.</p>
+  <p class="bandeau-maquette">Maquette de démonstration. Comptes fictifs de test : Marie, Paul, Sophie (voir ci-dessous). Ne saisissez aucun vrai mot de passe.</p>
+  <section class="comptes-demo" aria-labelledby="titre-comptes-demo">
+    <div class="conteneur">
+      <p id="titre-comptes-demo"><strong>Comptes fictifs de test</strong></p>
+      <table class="tableau">
+        <thead>
+          <tr><th scope="col">Compte</th><th scope="col">Rôle</th><th scope="col">Identifiant</th><th scope="col">Mot de passe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Marie</td><td>Adhérent</td><td>marie</td><td>marie2026</td></tr>
+          <tr><td>Paul</td><td>Moniteur</td><td>paul</td><td>paul2026</td></tr>
+          <tr><td>Sophie</td><td>Administrateur</td><td>sophie</td><td>sophie2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <div class="conteneur">
+      <a class="marque" href="../index.html">
+        <img src="../img/logo-cdba.png" width="511" height="391" alt="Club Défense Balard Arcueil, retour au site public">
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Les fosses</a></li>
+          <li><a href="../inscription.html">Inscription</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="ouverture bande-claire motif" aria-labelledby="titre-page">
+      <div class="conteneur">
+        <div>
+          <h1 id="titre-page">Espace adhérent</h1>
+          <hr class="filet-rouge">
+          <p class="chapeau">Maquette visuelle. La connexion réelle n’existe pas encore.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rubrique">
+      <div class="conteneur">
+        <form class="formulaire" id="formulaire-connexion" aria-labelledby="titre-connexion" autocomplete="off" novalidate>
+          <h2 id="titre-connexion">Se connecter</h2>
+          <p>La saisie est comparée, dans votre navigateur, aux trois comptes fictifs ci-dessus. Rien n’est envoyé ni enregistré.</p>
+          <div class="champ">
+            <label for="identifiant">Identifiant</label>
+            <input type="text" id="identifiant" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="erreur-identifiant">
+            <p class="erreur-champ" id="erreur-identifiant" hidden></p>
+          </div>
+          <div class="champ">
+            <label for="mot-de-passe">Mot de passe</label>
+            <input type="password" id="mot-de-passe" autocomplete="off" aria-describedby="erreur-mot-de-passe">
+            <p class="erreur-champ" id="erreur-mot-de-passe" hidden></p>
+          </div>
+          <p class="actions">
+            <button class="bouton" type="submit">Se connecter</button>
+          </p>
+          <p>Identifiant et mot de passe fournis par l’administrateur du club. Un problème de connexion ? Écrivez à <a class="lien-cible" href="mailto:plongee@cdba.club">plongee@cdba.club</a> [À CONFIRMER].</p>
+          <p>Pour changer votre mot de passe : « Définir ou changer mon mot de passe », dans votre espace.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="rubrique bande-claire" aria-labelledby="titre-oubli">
+      <div class="conteneur">
+        <form class="formulaire formulaire-fictif" id="formulaire-oubli" method="post" novalidate aria-labelledby="titre-oubli">
+          <h2 id="titre-oubli">Mot de passe oublié</h2>
+          <p class="a-completer">Formulaire fictif : ne saisissez aucune vraie adresse. Rien n’est lu ni envoyé.</p>
+          <div class="champ">
+            <label for="oubli-e-mail">Adresse e-mail</label>
+            <input type="email" id="oubli-e-mail" autocomplete="off">
+          </div>
+          <p><button class="bouton" type="submit">Recevoir un lien</button></p>
+          <div class="message" role="status" tabindex="-1" data-texte="Si ce compte existe, un e-mail est envoyé. Simulation : aucun e-mail n’est envoyé, l’adresse n’a été ni lue ni enregistrée."></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <ul>
+        <li><a href="../mentions-legales.html">Mentions légales</a></li>
+        <li><a href="../confidentialite.html">Confidentialité</a></li>
+        <li><a href="../conditions.html">Conditions d’inscription</a></li>
+        <li><a href="../cookies.html">Cookies</a></li>
+        <li><a href="../credits.html">Crédits</a></li>
+      </ul>
+      <p>Section plongée du Club Défense Balard Arcueil.</p>
+    </div>
+  </footer>
+</body>
+</html>

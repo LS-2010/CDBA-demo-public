@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Espace moniteur (maquette) | Section plongée du CDBA</title>
+  <link rel="icon" href="../img/logo-cdba.png" type="image/png">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/encadrement.js" defer></script>
+</head>
+<body>
+  <p class="bandeau-demo-publique">Version de démonstration, non officielle. Contenu provisoire.</p>
+  <p class="bandeau-maquette">MAQUETTE DE DÉMONSTRATION : aucune donnée n’est enregistrée</p>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <div class="conteneur">
+      <a class="marque" href="../index.html">
+        <img src="../img/logo-cdba.png" width="511" height="391" alt="Club Défense Balard Arcueil, retour au site public">
+      </a>
+      <nav class="nav" aria-label="Compte">
+        <ul>
+          <li><p class="utilisateur">Paul, moniteur <span class="exemple">EXEMPLE</span></p></li>
+          <li><a href="../index.html">Se déconnecter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="ouverture bande-claire motif" aria-labelledby="titre-page">
+      <div class="conteneur">
+        <div>
+          <h1 id="titre-page">Espace moniteur</h1>
+          <hr class="filet-rouge">
+          <p class="a-completer">Maquette : fonctions à définir avec le club.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rubrique" aria-labelledby="titre-inscrits">
+      <div class="conteneur">
+        <h2 id="titre-inscrits">Inscrits par fosse</h2>
+        <div class="champ formulaire">
+          <label for="choix-fosse">Fosse</label>
+          <select id="choix-fosse"></select>
+        </div>
+        <noscript><p class="a-completer">Cette maquette a besoin de JavaScript pour afficher les listes.</p></noscript>
+        <h3 id="titre-adherents">Adhérents</h3>
+        <div class="defilement" role="region" aria-labelledby="titre-adherents" tabindex="0">
+          <table class="tableau">
+            <thead>
+              <tr><th scope="col">Nom</th><th scope="col">Prénom</th><th scope="col">Niveau(x)</th><th scope="col">Certificat médical</th><th scope="col">Fosses (saison)</th><th scope="col">Forfait payé</th><th scope="col">Covoiturage</th><th scope="col">Véhicule</th><th scope="col">Places</th></tr>
+            </thead>
+            <tbody id="liste-adherents"></tbody>
+          </table>
+        </div>
+        <h3 id="titre-moniteurs">Moniteurs</h3>
+        <div class="defilement" role="region" aria-labelledby="titre-moniteurs" tabindex="0">
+          <table class="tableau">
+            <thead>
+              <tr><th scope="col">Nom</th><th scope="col">Prénom</th><th scope="col">Niveau(x)</th><th scope="col">Certificat médical</th><th scope="col">Fosses (saison)</th><th scope="col">Forfait payé</th><th scope="col">Covoiturage</th><th scope="col">Véhicule</th><th scope="col">Places</th></tr>
+            </thead>
+            <tbody id="liste-moniteurs"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="rubrique bande-claire" aria-labelledby="titre-fiche">
+      <div class="conteneur">
+        <h2 id="titre-fiche">Fiche d’un membre <span class="exemple">EXEMPLE</span></h2>
+        <div class="champ formulaire">
+          <label for="choix-fiche">Membre</label>
+          <select id="choix-fiche"></select>
+        </div>
+        <dl class="fiche" id="fiche"></dl>
+      </div>
+    </section>
+
+    <section class="rubrique" aria-labelledby="titre-palanquees">
+      <div class="conteneur">
+        <h2 id="titre-palanquees">Palanquées</h2>
+        <p>Pour la fosse choisie dans « Inscrits par fosse ». Rien n’est enregistré : tout est perdu au rechargement de la page.</p>
+        <div class="formulaire">
+          <div class="champ">
+            <label for="choix-dp">Directeur de plongée (DP)</label>
+            <select id="choix-dp" aria-describedby="regle-dp erreur-dp"></select>
+            <p id="regle-dp">Seuls les inscrits de niveau E3 minimum ou MEF1 minimum sont proposés. Place de MEF2 et IN dans la règle : [À CONFIRMER].</p>
+            <p class="erreur-champ" id="erreur-dp" hidden></p>
+          </div>
+          <p class="actions"><button class="bouton" type="button" id="definir-dp">Définir le DP</button></p>
+          <p id="dp-actuel"></p>
+          <p class="actions"><button class="bouton" type="button" id="creer-palanquee">Créer une palanquée</button></p>
+          <p id="annonce-palanquees" role="status"></p>
+          <div id="palanquees"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rubrique bande-claire" aria-labelledby="titre-dossier">
+      <div class="conteneur">
+        <h2 id="titre-dossier">Dossier de Marie <span class="exemple">EXEMPLE</span></h2>
+        <p class="a-completer">Maquette : fonctions à définir avec le club.</p>
+        <table class="tableau">
+          <thead>
+            <tr><th scope="col">Pièce</th><th scope="col">Statut</th><th scope="col">Validité</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Licence FFESSM</th><td>Fourni <span class="exemple">EXEMPLE</span></td><td>31 décembre 2027</td></tr>
+            <tr><th scope="row">Certificat médical</th><td>À vérifier <span class="exemple">EXEMPLE</span></td><td>15 septembre 2027</td></tr>
+            <tr><th scope="row">Passeport de plongée ou carte CMAS</th><td>Fourni <span class="exemple">EXEMPLE</span></td><td>sans objet</td></tr>
+          </tbody>
+        </table>
+        <p class="actions">
+          <button class="bouton" type="button" disabled>Valider</button>
+          <button class="bouton" type="button" disabled>Refuser</button>
+        </p>
+        <p>« Valider » et « Refuser » sont inactifs dans la maquette.</p>
+      </div>
+    </section>
+
+    <section class="rubrique rubrique-serree" aria-labelledby="titre-niveaux">
+      <div class="conteneur">
+        <h2 id="titre-niveaux">Niveaux</h2>
+        <div class="groupes-niveaux">
+          <div>
+            <h3>Plongée</h3>
+            <ul class="liste niveaux">
+              <li>Baptême</li>
+              <li>PN1</li>
+              <li>N1</li>
+              <li>PN2</li>
+              <li>N2</li>
+              <li>PN3</li>
+              <li>N3</li>
+              <li>PN4</li>
+              <li>GDP</li>
+              <li>E1</li>
+              <li>E2</li>
+              <li>E3</li>
+              <li>E4</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Apnée</h3>
+            <ul class="liste niveaux">
+              <li>AP</li>
+              <li>ACP</li>
+              <li>AEL</li>
+              <li>ACEL</li>
+              <li>AEEL</li>
+              <li>IE1</li>
+              <li>IE2</li>
+              <li>MEF1</li>
+              <li>MEF2</li>
+              <li>IN</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <ul>
+        <li><a href="../mentions-legales.html">Mentions légales</a></li>
+        <li><a href="../confidentialite.html">Confidentialité</a></li>
+        <li><a href="../conditions.html">Conditions d’inscription</a></li>
+        <li><a href="../cookies.html">Cookies</a></li>
+        <li><a href="../credits.html">Crédits</a></li>
+      </ul>
+      <p>Section plongée du Club Défense Balard Arcueil.</p>
+    </div>
+  </footer>
+</body>
+</html>

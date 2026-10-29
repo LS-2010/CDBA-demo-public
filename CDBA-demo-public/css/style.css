@@ -1,0 +1,758 @@
+/* CDBA, section plongée. Couleurs échantillonnées sur le logo (docs/06-CHARTE.md). */
+
+:root {
+  --bleu: #0050a0;
+  --rouge: #dc1f1e;
+  --gris-logo: #a6a6a6; /* décoration seulement : contraste 2,43:1 */
+  --texte: #1a1a1a;
+  --texte-2: #4d4d4d;
+  --fond: #ffffff;
+  --filet: #d9d9d9;
+  --bleu-clair: #f0f4f9; /* 6 % de #0050A0 sur blanc */
+  --bleu-fonce: #053a57;
+  --bleu-pale: #d6e4f0; /* texte secondaire sur bleu foncé : 9,27:1 */
+  --rayon: 6px;
+  --ombre: 0 10px 28px rgb(0 48 96 / 0.18); /* fixe, teintée du bleu */
+  --police: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mesure: 72rem;
+  --gouttiere: clamp(1rem, 4vw, 3rem);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--police);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere; /* compte dans la largeur minimale : les mots longs ne forcent plus les grilles */
+  caret-color: var(--bleu);
+}
+
+::selection {
+  background: var(--bleu);
+  color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--bleu);
+  text-underline-offset: 0.18em;
+}
+
+a,
+button,
+label,
+input,
+select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgb(0 80 160 / 0.15);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible,
+input[type="date"]:focus {
+  outline: 3px solid var(--bleu);
+  outline-offset: 3px;
+}
+
+/* Lien isolé dans le texte : cible tactile de 44 px de haut. */
+.lien-cible {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.lien-evitement {
+  position: absolute;
+  left: var(--gouttiere);
+  top: 0.5rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--fond);
+  transform: translateY(-200%);
+}
+
+.lien-evitement:focus {
+  transform: none;
+}
+
+.conteneur {
+  width: 100%;
+  max-width: var(--mesure);
+  margin-inline: auto;
+  padding-inline: var(--gouttiere);
+}
+
+/* En-tête */
+
+.entete .conteneur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 1rem;
+}
+
+.marque {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* Logo affiché à 120 px au plus : net jusqu'à la densité 4 (fichier de 511 px). */
+.marque img {
+  display: block;
+  width: clamp(88px, 12vw, 120px);
+}
+
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--texte);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: var(--bleu);
+  text-decoration: underline;
+  text-decoration-color: var(--rouge);
+  text-decoration-thickness: 3px;
+}
+
+/* Titres : plus d'espace au-dessus qu'en dessous. */
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  color: var(--bleu);
+}
+
+h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--bleu);
+}
+
+h3 {
+  margin: 2rem 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+h3:first-child {
+  margin-top: 0;
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: 65ch;
+}
+
+/* Ouverture : texte à gauche, photo à droite (empilés sur mobile). */
+
+.ouverture {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+.ouverture .conteneur {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 56rem) {
+  .ouverture .conteneur {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+    gap: 3rem;
+  }
+}
+
+.filet-rouge {
+  width: 4.5rem;
+  height: 5px;
+  margin: 1.5rem 0;
+  border: 0;
+  background: var(--rouge);
+}
+
+.chapeau {
+  font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+  max-width: 34ch;
+}
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.75rem;
+  border: 2px solid var(--bleu);
+  border-radius: var(--rayon);
+  background: var(--bleu);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms ease-out, color 150ms ease-out;
+}
+
+.bouton:hover {
+  background: var(--fond);
+  color: var(--bleu);
+}
+
+.bouton:active {
+  transform: translateY(1px);
+}
+
+/* Photo, à sa taille native au plus (604 px). */
+
+.photo {
+  margin: 0;
+  max-width: 604px;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  border-radius: var(--rayon);
+}
+
+/* Verre : fond uni semi-transparent, liseré clair 1 px, ombre fixe. Pas de flou.
+   Contraste vérifié au pire cas (pixel noir dessous) : texte 13,2:1, bleu 6,0:1. */
+.verre {
+  position: relative;
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.95);
+  border-radius: var(--rayon);
+  background: rgb(255 255 255 / 0.88);
+  box-shadow: var(--ombre);
+}
+
+.verre p {
+  margin: 0;
+}
+
+.verre strong {
+  display: block;
+  color: var(--bleu);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+/* Sections */
+
+.rubrique {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* Bandes de fond pleines, en alternance. */
+
+.bande-claire {
+  background-color: var(--bleu-clair);
+}
+
+/* Courbes de niveau : SVG statique externe, traits à 12 % d'opacité.
+   Pire pixel (#D3E0EE) : bleu 5,9:1, texte 13:1. */
+.motif {
+  background-image: url("../img/courbes.svg");
+  background-position: center;
+  background-size: cover;
+}
+
+.bande-foncee {
+  background-color: var(--bleu-fonce);
+  color: #ffffff;
+}
+
+.bande-foncee h2,
+.bande-foncee a {
+  color: #ffffff;
+}
+
+.bande-foncee :focus-visible {
+  outline-color: #ffffff;
+}
+
+/* Bandeau foncé : dates à gauche, murène à droite à sa taille native au plus. */
+.ensemble {
+  display: grid;
+  gap: 2rem 3rem;
+  align-items: center;
+}
+
+@media (min-width: 64rem) {
+  .ensemble {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 604px);
+  }
+}
+
+/* Dates : une ligne par date (jour et date, horaire), séparées par des filets fins. */
+.horaires {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 0 1.75rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+}
+
+/* Petits écrans : texte un peu réduit pour garder une ligne par date dès 375 px. */
+@media (max-width: 30rem) {
+  .horaires {
+    font-size: 0.9375rem;
+  }
+}
+
+.horaires caption {
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--rouge);
+  font-size: 1.125rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+.horaires th,
+.horaires td {
+  padding: 0.35rem 0.75rem 0.35rem 0;
+  border-bottom: 1px solid var(--filet);
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.horaires :is(th, td):last-child {
+  padding-right: 0;
+}
+
+.horaires thead th {
+  color: var(--texte-2);
+  font-size: 0.8125rem;
+}
+
+.horaires .jour {
+  color: var(--texte-2);
+  font-weight: 400;
+}
+
+.bande-foncee .horaires caption {
+  border-bottom-color: var(--bleu-pale);
+}
+
+.bande-foncee .horaires :is(th, td) {
+  border-bottom-color: rgb(214 228 240 / 0.3);
+}
+
+.bande-foncee .horaires :is(thead th, .jour) {
+  color: var(--bleu-pale);
+}
+
+/* Infos pratiques : trois colonnes de texte, sans cartes. */
+
+.colonnes {
+  display: grid;
+  gap: 2rem 3rem;
+}
+
+@media (min-width: 48rem) {
+  .colonnes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.liste {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.liste li {
+  margin-bottom: 0.25rem;
+}
+
+/* Niveaux : deux groupes titrés, colonnes compactes dont le nombre suit la largeur. */
+.rubrique-serree {
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.groupes-niveaux {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.groupes-niveaux h3 {
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--rouge);
+}
+
+.niveaux {
+  columns: 5.5rem;
+  column-gap: 1.75rem;
+  margin: 0;
+}
+
+.niveaux li {
+  break-inside: avoid;
+  margin-bottom: 0.15rem;
+}
+
+.niveaux-longs {
+  columns: 15rem;
+}
+
+.liste li::marker {
+  color: var(--rouge);
+}
+
+/* Contenu en attente, signalé : liseré pointillé de 1 px. */
+
+.a-completer {
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--texte-2);
+  border-radius: var(--rayon);
+  color: var(--texte-2);
+}
+
+/* Mention « version provisoire » des pages légales : à retirer après validation (docs/14). */
+.version-provisoire {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5rem 0.875rem;
+  border: 1px dashed var(--texte-2);
+  border-radius: var(--rayon);
+  background: var(--fond);
+  color: var(--texte);
+  font-weight: 700;
+}
+
+/* À venir : une ligne discrète. */
+
+.a-venir {
+  padding-block: 0 clamp(2rem, 5vw, 3rem);
+  color: var(--texte-2);
+  background-color: var(--bleu-clair);
+}
+
+.a-venir ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Formulaire */
+
+.formulaire {
+  max-width: 40rem;
+}
+
+.champ {
+  margin-bottom: 1.5rem;
+}
+
+.champ label,
+fieldset legend {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--texte-2);
+  border-radius: var(--rayon);
+  background: var(--fond);
+  color: var(--texte);
+  font: inherit;
+}
+
+fieldset {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: 0;
+}
+
+.choix {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  font-weight: 400;
+}
+
+.choix input {
+  flex: none;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin: 0;
+  accent-color: var(--bleu);
+}
+
+.choix-groupe {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr));
+  gap: 0 1rem;
+}
+
+.consentement {
+  align-items: flex-start;
+  padding-block: 0.6rem;
+}
+
+.consentement input {
+  margin-top: 0.15rem;
+}
+
+.piege {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Erreur sous le champ concerné (rouge du logo : 4,93:1 sur blanc). */
+.erreur-champ {
+  margin: 0.4rem 0 0;
+  color: var(--rouge);
+  font-weight: 700;
+}
+
+[aria-invalid="true"]:is(input[type="text"], input[type="number"], select) {
+  border-color: var(--rouge);
+}
+
+.message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--bleu);
+  border-radius: var(--rayon);
+}
+
+.message:empty {
+  display: none;
+}
+
+.message.erreur {
+  border-color: var(--rouge);
+}
+
+/* Pied de page */
+
+.pied {
+  padding-block: 2rem;
+  border-top: 1px solid var(--filet);
+  color: var(--texte-2);
+  font-size: 0.9375rem;
+}
+
+.pied ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pied a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* Maquette de l’espace adhérent (pages non liées, à retirer avant la mise en ligne). */
+
+.bandeau-maquette {
+  margin: 0;
+  padding: 0.75rem var(--gouttiere);
+  background-color: var(--bleu-fonce);
+  color: #ffffff;
+  font-weight: 800;
+  text-align: center;
+}
+
+.comptes-demo {
+  padding-block: 1rem 0.5rem;
+  border-bottom: 1px solid var(--filet);
+}
+
+.exemple {
+  color: var(--texte-2);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.tableau {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+.tableau th,
+.tableau td {
+  padding: 0.75rem 1rem 0.75rem 0;
+  border-bottom: 1px solid var(--filet);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tableau thead th {
+  color: var(--texte-2);
+  font-size: 0.9375rem;
+}
+
+/* Tableaux larges : défilement horizontal dans leur cadre, jamais dans la page. */
+.defilement {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.defilement .tableau {
+  min-width: 44rem;
+  margin-bottom: 0;
+}
+
+.tableau select {
+  min-width: 9rem;
+}
+
+/* Palanquées : un filet entre chaque, sans boîte. */
+.palanquee {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--filet);
+}
+
+.palanquee .liste .bouton {
+  margin: 0.25rem 0 0.5rem;
+}
+
+.fiche {
+  display: grid;
+  grid-template-columns: fit-content(50%) minmax(0, 1fr); /* intitulés limités à la moitié, retour à la ligne permis */
+  gap: 0.5rem 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.fiche dt {
+  font-weight: 700;
+}
+
+.fiche dd {
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin: 0;
+}
+
+.bouton-secondaire {
+  background: var(--fond);
+  color: var(--bleu);
+}
+
+.bouton-secondaire:hover {
+  background: var(--bleu);
+  color: #ffffff;
+}
+
+.bouton:disabled {
+  border-color: var(--texte-2);
+  background: var(--fond);
+  color: var(--texte-2);
+  cursor: not-allowed;
+}
+
+.utilisateur {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Impression : sans leur fond, le texte blanc de ces blocs sortait gris clair sur blanc (PDF Chromium, dates de l'accueil). */
+@media print {
+  .bande-foncee,
+  .bouton,
+  .bandeau-maquette {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Copie publique de démonstration : bandeau présent en haut de chaque page (rouge du logo, blanc 4,93:1). */
+.bandeau-demo-publique {
+  margin: 0;
+  padding: 0.6rem var(--gouttiere);
+  background-color: var(--rouge);
+  color: #ffffff;
+  font-weight: 800;
+  text-align: center;
+}
